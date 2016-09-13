@@ -23,7 +23,7 @@ var findUsername = (id, users) => {
 
 var EntryList = ({entries, users, navigator}) => (
     <ListView style ={styles.container}
-       dataSource={entries}
+       dataSource={props.entries}
        renderRow={ (rowData) =>
           <Entry 
             text={ rowData.text } 
