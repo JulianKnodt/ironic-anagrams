@@ -20,11 +20,8 @@ import SettingsTab from './Settings_Components/SettingsTab';
 import FriendScene from './Friend_Components/FriendScene';
 import MessageScene from './Entry_Components/MessageScene';
 import SearchFriends from './Friend_Components/SearchFriends';
-<<<<<<< e375eaba4da13d7eac36e1b359401c5534f21adb
 import CommentsScene from './Comment_Components/CommentsScene';
-=======
 import CommentsScene from './Entry_Components/CommentsScene';
->>>>>>> Add routing for CommentsScene
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -257,12 +254,9 @@ export default class Main extends Component {
       )
     } else if (route.title === 'CommentsScene') {
       console.log('Route to Comments Scene');
-<<<<<<< e375eaba4da13d7eac36e1b359401c5534f21adb
       return (
         <CommentsScene />
       )
-=======
->>>>>>> Add routing for CommentsScene
     }
   }
 
