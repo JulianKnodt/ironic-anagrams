@@ -20,10 +20,12 @@ import SettingsTab from './Settings_Components/SettingsTab';
 import FriendScene from './Friend_Components/FriendScene';
 import MessageScene from './Entry_Components/MessageScene';
 import SearchFriends from './Friend_Components/SearchFriends';
-
-import Icon from 'react-native-vector-icons/MaterialIcons'
-
+import Icon from 'react-native-vector-icons/MaterialIcons';
+// import * as test from 'react-native-sensor-manager';
+import Geocoder from 'react-native-geocoder';
 import styles from './styles/MainStyles';
+
+console.log(Geocoder);
 
 export default class Main extends Component {
   constructor(props) {
@@ -67,8 +69,11 @@ export default class Main extends Component {
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        console.log(position);
         var latLng = {lat: position.coords.longitude, lng: position.coords.latitude};
+        console.log(Geocoder);
+        // Geocoder.geocodePosition(latLng).then(res => {
+        //   console.log(res);
+        // });
         // The GeoCoder needs Xcode configuration to work. For now, use dummy data.
         // to establish connection with server. 
 
@@ -111,7 +116,6 @@ export default class Main extends Component {
       })
       .then( resp => { resp.json()
         .then( json => {
-          console.log(json);
           const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
           this.setState({
             entries: ds.cloneWithRows(json)

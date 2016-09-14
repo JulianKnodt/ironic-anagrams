@@ -3,6 +3,7 @@
 
 import React, { Component } from 'react';
 import {
+  CameraRoll,
   StyleSheet,
   Text,
   TextInput,
