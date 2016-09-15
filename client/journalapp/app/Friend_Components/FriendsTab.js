@@ -43,7 +43,7 @@ export default class FriendsTab extends Component {
   // friends (via Friend).
   getFriends(){
     AsyncStorage.getItem('@MySuperStore:token', (err, token) => {
-      fetch('http://localhost:3000/api/friends', {
+      fetch('https://journaldb.herokuapp.com/api/friends', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -89,7 +89,7 @@ export default class FriendsTab extends Component {
 
   getFriendPosts(friendId, callback) {
     console.log('Getting a friends posts');
-    var url = 'http://localhost:3000/api/entries' + "/?userId=" + friendId.toString();
+    var url = 'https://journaldb.herokuapp.com/api/entries' + "/?userId=" + friendId.toString();
     AsyncStorage.getItem('@MySuperStore:token', (err, token) => {
       fetch(url , {
         method: 'GET',
@@ -100,15 +100,6 @@ export default class FriendsTab extends Component {
       })
       .then( resp => { resp.json()
         .then( json => {
-          console.log('Fetched friends posts', json);
-
-          json.map(function(entry){
-            console.log('Mapping: ', entry);
-            if (entry.tags) {
-              entry.tags = JSON.parse(entry.tags);
-            }
-            return entry;
-          });
           //const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
           this.setState({
             allMessages: this.state.allMessages.concat(json)
@@ -127,7 +118,7 @@ export default class FriendsTab extends Component {
   // requests (via Request).
   getFriendRequests(){
     AsyncStorage.getItem('@MySuperStore:token', (err, token) => {
-      fetch('http://localhost:3000/api/friendreq', {
+      fetch('https://journaldb.herokuapp.com/api/friendreq', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -150,7 +141,7 @@ export default class FriendsTab extends Component {
   acceptFriendRequest(requestId){
     AsyncStorage.getItem('@MySuperStore:token', (err, token) => {
       var message = {requestId:requestId};
-      fetch('http://localhost:3000/api/friendreq', {
+      fetch('https://journaldb.herokuapp.com/api/friendreq', {
         method: 'POST',
         headers: {
          'Content-Type': 'application/json',
@@ -172,7 +163,7 @@ export default class FriendsTab extends Component {
   rejectFriendRequest(requestId){
     AsyncStorage.getItem('@MySuperStore:token', (err, token) => {
       var req = {requestId: requestId};
-      fetch('http://localhost:3000/api/friendreq', {
+      fetch('https://journaldb.herokuapp.com/api/friendreq', {
         method: 'DELETE',
         headers: {
          'Content-Type': 'application/json',
