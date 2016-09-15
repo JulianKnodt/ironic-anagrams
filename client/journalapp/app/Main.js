@@ -93,8 +93,8 @@ export default class Main extends Component {
     navigator.geolocation.clearWatch(this.watchID);
   }
 
-  deleteEntries(username, password){
-    console.log(username, password);
+  deleteEntries(username, secret){
+    console.log(username, secret);
   }
 
   // This method is passed down to EntriesTab.js, where it is used to get the list of all entries for

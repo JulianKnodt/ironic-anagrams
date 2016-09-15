@@ -63,7 +63,7 @@ export default class FriendScene extends Component {
             onBlur= { this.moveDownForKeyboardHide.bind(this) }/>
         <View style={ [styles.bodyWidth, styles.footer] }>
           <Icon style={ [styles.footerContent, styles.footerPadlock] } name="lock-open"/>
-          <Icon style={ [styles.footerContent, styles.footerArrow] } name="near-me"/>
+          <Icon style={ [styles.footerContent, styles.footerArrow] } name="location-searching"/>
           <Text style={ [styles.footerContent, styles.footerText] }>{ this.props.location }</Text>
         </View>
       </ScrollView>
