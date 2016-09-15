@@ -64,8 +64,3 @@ var parseDate = (date) => {
   date = new Date(date);
   return DateFormatter(date, 'ddd, mmm d HH:MM');
 };
-
-var click = function() {
-  console.log('Entry Clicked');
-}
-

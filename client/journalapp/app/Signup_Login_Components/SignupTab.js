@@ -38,7 +38,7 @@ export default class SignupTab extends Component {
     });
 
     if (this.formStatus()){
-      fetch('http://localhost:3000/api/signup', {
+      fetch('https://journaldb.herokuapp.com/api/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
