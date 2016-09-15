@@ -21,7 +21,7 @@ import FriendScene from './Friend_Components/FriendScene';
 import MessageScene from './Entry_Components/MessageScene';
 import SearchFriends from './Friend_Components/SearchFriends';
 import CommentsScene from './Comment_Components/CommentsScene';
-import CommentsScene from './Entry_Components/CommentsScene';
+
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -104,7 +104,7 @@ export default class Main extends Component {
     //tabs is an array of strings like ['#hash', '#test']
     tabs = JSON.stringify(tabs) || '[]';
     AsyncStorage.getItem('@MySuperStore:token', (err, token) => {
-      fetch(`http://localhost:3000/api/entries?tags=${tabs}`, {
+      fetch(`https://journaldb.herokuapp.com/api/entries?tags=${tabs}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -157,7 +157,7 @@ export default class Main extends Component {
     console.log(tags);
     AsyncStorage.getItem('@MySuperStore:token', (err, token) => {
       var newEntry = { text: this.state.newEntry, location: this.state.location, tags: tags};
-      fetch('http://localhost:3000/api/entries', {
+      fetch('https://journaldb.herokuapp.com/api/entries', {
         method: 'POST',
         headers: {
          'Content-Type': 'application/json',

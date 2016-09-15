@@ -36,7 +36,7 @@ export default class LoginTab extends Component {
     });
 
     if (this.formStatus()){
-      fetch('http://localhost:3000/api/signin', {
+      fetch('https://journaldb.herokuapp.com/api/signin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
